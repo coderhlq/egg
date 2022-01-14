@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/default.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <% include header.html %>
+     
+    <div>
+      <button onclick="add()">增加cookie</button>
+      <button onclick="del()">删除cookie</button>
+      <button onclick="edit()">编辑cookie</button>
+      <button onclick="show()">查询cookie</button>
+    </div>
+
+
+
+    <h2><%=id%>号</h2>
+    <h2><%=nowTime%></h2>
+    <h3>我是<%=name%><%=age%>岁,专业技能<%=skill%></h3>
+    我的技能是:
+    <ul>
+        <%for(var i=0;i<skills.length;i++){%>
+        <li><%=skills[i]%></li></li>
+        <%}%>
+    </ul>
+    <script>
+      function add(){
+        fetch('/add',{
+          method:'post',
+          headers:{
+            'Content-Type':"application/json"
+          }
+        })
+      }
+      function del(){
+        fetch('/del',{
+          method:'post',
+          headers:{
+            'Content-Type':"application/json"
+          }
+        })
+      }
+      function edit(){
+        fetch('/edit',{
+          method:'post',
+          headers:{
+            'Content-Type':"application/json"
+          }
+        })
+      }
+      function show(){
+        fetch('/show',{
+          method:'post',
+          headers:{
+            'Content-Type':"application/json"
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
